@@ -1,0 +1,74 @@
+site_name: eyalsec, the Python client for the EyalSec API
+site_url: https://eyalsec.readthedocs.io/
+site_description: Typed sync and async Python client for the EyalSec API.
+repo_url: https://github.com/EyalSec/eyalsec-python
+repo_name: EyalSec/eyalsec-python
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2026 EyalSec. The client is MIT licensed.
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - content.code.copy
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - Quick start: quickstart.md
+  - Guide:
+      - Events and paging: events.md
+      - Triage, rules and settings: manage.md
+      - Machines and CI: machines.md
+      - Errors and retries: errors.md
+      - asyncio: async.md
+  - Reference:
+      - EyalSec (sync): reference/client.md
+      - AsyncEyalSec: reference/async.md
+      - Records: reference/models.md
+      - Exceptions: reference/errors.md
+  - Changelog: changelog.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_source: false
+            show_root_heading: true
+            show_root_full_path: false
+            members_order: source
+            separate_signature: true
+            show_signature_annotations: true
+            signature_crossrefs: true
+            merge_init_into_class: true
+            filters: ["!^_"]
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite

@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "eyalsec"
+version = "1.1.0"
+description = "Python client for the EyalSec API: read your security events, machines and runs, and manage rules, filters and labels. Sync and async, typed."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [{ name = "EyalSec", email = "support@eyalsec.com" }]
+keywords = [
+    "eyalsec", "es-python", "api client", "sdk", "application security",
+    "security events", "runtime security", "taint tracking", "devsecops", "appsec",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = ["httpx>=0.25,<1"]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "anyio>=4"]
+
+[project.urls]
+Homepage = "https://eyalsec.com"
+Documentation = "https://eyalsec.readthedocs.io"
+"API reference" = "https://eyalsec.com/docs/api"
+Source = "https://github.com/EyalSec/eyalsec-python"
+Issues = "https://github.com/EyalSec/eyalsec-python/issues"
+Changelog = "https://github.com/EyalSec/eyalsec-python/blob/main/CHANGELOG.md"
+Pricing = "https://eyalsec.com/pricing"
+"Book a demo" = "https://eyalsec.com/contact"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/eyalsec"]
+
+[tool.hatch.build.targets.sdist]
+only-include = ["src/eyalsec", "README.md", "LICENSE", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+extend-exclude = ["src/eyalsec/_client.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["UP006", "UP007", "UP035", "UP045"]
+
+[tool.mypy]
+strict = true
+python_version = "3.10"
+files = ["src/eyalsec"]

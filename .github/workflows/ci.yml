@@ -75,7 +75,14 @@ jobs:
         with:
           python-version: "3.13"
       - run: python -m pip install build twine
-      - run: python -m build
+      # Build from a copy outside the git checkout, as a release is built:
+      # inside one, hatchling also ships the repository's .gitignore.
+      - name: Build
+        run: |
+          pkg="$RUNNER_TEMP/pkg"
+          mkdir -p "$pkg"
+          cp -r pyproject.toml README.md LICENSE src "$pkg/"
+          python -m build -o dist "$pkg"
       - run: python -m twine check --strict dist/*
       - name: The sdist holds only the package, README, LICENSE and pyproject
         run: |

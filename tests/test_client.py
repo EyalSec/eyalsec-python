@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import inspect
+import os
 import re
 import subprocess
 import sys
@@ -795,6 +796,6 @@ def test_importing_issues_no_warning() -> None:
     result = subprocess.run(
         [sys.executable, "-W", "error", "-c", "import eyalsec"],
         capture_output=True,
-        env={"PYTHONPATH": str(ROOT / "src")},
+        env={**os.environ, "PYTHONPATH": str(ROOT / "src")},
     )
     assert result.returncode == 0, result.stderr.decode()

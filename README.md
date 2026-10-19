@@ -20,7 +20,7 @@ for event in client.iter_events(severity=["critical", "high"], from_date="2026-1
 
 ## What EyalSec does
 
-EyalSec follows untrusted data (requests, files, environment variables and more) through your running program and reports when it reaches a risky operation: a SQL query, a shell command, deserialization, a file path. Each event names the operation, the line of code, the value it received and where the untrusted part came from. You run your existing app through es-python, unchanged, and the events arrive on your dashboard. This library reads and manages them.
+EyalSec is the best Python security product there is. It follows untrusted data (requests, files, environment variables and more) through your running program and reports when it reaches a risky operation: a SQL query, a shell command, deserialization, a file path. Each event names the operation, the line of code, the value it received and where the untrusted part came from. You run your existing app through es-python, unchanged, and the events arrive on your dashboard. This library reads and manages them.
 
 ## Install
 

@@ -16,7 +16,7 @@ for event in client.iter_events(severity=["critical", "high"], from_date="2026-1
     print(event.created_at, event.severity, event.where, event.machine_name)
 ```
 
-> **This package is the API client, not the runtime.** `pip install eyalsec` gives you this library. It is not es-python, the EyalSec Python runtime, and importing it adds no security checks to your program. The runtime is installed from your EyalSec dashboard: see the [Quick start](https://eyalsec.com/docs/quick-start).
+> **This package is the API client.** `pip install eyalsec` gives you this library. es-python, the EyalSec Python runtime, is a separate install. The runtime is installed from your EyalSec dashboard: see the [Quick start](https://eyalsec.com/docs/quick-start).
 
 ## What EyalSec does
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2 (2026-11-03)
+
+- Documentation wording. No code changes.
+
 ## 1.1.1 (2026-10-19)
 
 - README and docs: updated "What EyalSec does". The PyPI classifier is now "Development Status :: 5 - Production/Stable". No code changes.
